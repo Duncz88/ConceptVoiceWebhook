@@ -21,23 +21,20 @@ PriceData.findOne({ModelName:modelToSearch},function(err,modelExists)
         if (err)
         {
           return res.json({
-              speech: 'Something went wrong!',
-              displayText: 'Something went wrong!',
+              fulfillmentText: 'Something went wrong!',
               source: 'price info'
           });
         }
 if (modelExists)
         {
           return res.json({
-                speech: 'The ' + modelExists.MakeName + ' ' + modelExists.ModelName + ' is available for ' + modelExists.SpeakPrice + ' drive away',
-                displayText: 'The ' + modelExists.MakeName + ' ' + modelExists.ModelName + 'is available for ' + modelExists.DisplayPrice + ' drive away',
+                fulfillmentText: 'The ' + modelExists.MakeName + ' ' + modelExists.ModelName + 'is available for ' + modelExists.DisplayPrice + ' drive away',
                 source: 'price info'
             });
         }
         else {
           return res.json({
-                speech: 'I am unable to find details on pricing for this model',
-                displayText: 'I am unable to find details on pricing for this model',
+                fulfillmentText: 'I am unable to find details on pricing for this model',
                 source: 'price info'
             });
         }
